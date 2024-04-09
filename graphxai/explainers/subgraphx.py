@@ -261,7 +261,7 @@ class SubgraphX(_BaseExplainer):
 
         best_result = find_closest_node_result(results, max_nodes=max_nodes)
 
-        node_mask, edge_mask = self.__parse_results(best_result, edge_index)
+        node_mask, edge_mask = self.__parse_results(best_result, edge_index.to('cpu'))
 
         exp = Explanation(
             node_imp = node_mask.float(),
